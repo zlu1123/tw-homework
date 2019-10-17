@@ -24,6 +24,7 @@
         display: flex;
         justify-content: space-between;
         padding: 10px 40px;
+        background: #ffffff;
     }
 
     .header-content >div img{

@@ -30,14 +30,16 @@
         height: 100%;
         width: 20%;
         position: fixed;
-        bottom: 0;
         top:0;
+    }
+
+    .func-item {
         padding: 0 30px;
     }
 
     .history-item {
         position: absolute;
-        bottom: 10px;
-
+        bottom: 0;
+        padding: 0 10px;
     }
 </style>

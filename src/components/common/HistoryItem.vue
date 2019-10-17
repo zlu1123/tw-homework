@@ -1,9 +1,9 @@
 <template>
     <div class="history-item-info">
         <div class="history-item-title">History</div>
-        <div v-for="(item, index) of historyList" class="history-item-content ellipsis_1">
+        <li v-for="(item, index) of historyList" :key="index" class="history-item-content ellipsis_1">
             <span >bjstdmngbdr0{{index}}.thoughtworks.com111111111111</span>
-        </div>
+        </li>
     </div>
 </template>
 
@@ -26,7 +26,7 @@
     }
 
     .history-item-info {
-        display: inline-grid;
+
     }
 
     .history-item-content span {
