@@ -20,15 +20,22 @@
                 contentList:[
                     {
                         title: "Building",
-                        num: 3
+                        num: 3,
+                        backgroundColor: "#FF9A2A",
+                        background: "icon-cog",
+                        isTransform: true
                     },
                     {
                         title: "idle",
-                        num: 5
+                        num: 5,
+                        backgroundColor: "#7FBC39",
+                        background: "icon-coffee",
+                        isTransform: false
                     },
                     {
                         title: "error",
-                        num: 10
+                        num: 10,
+                        backgroundColor: "#FFFFFF"
                     }
                 ]
             }
