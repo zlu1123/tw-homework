@@ -8,3 +8,17 @@ html body {
     background: #F3F3F3;
     margin: 0;
 }
+
+.curise-btn {
+    background: #00B4CF;
+    font-size: 14px;
+    color: #FFFFFF;
+    height: 30px;
+    width: fit-content;
+    line-height: 30px;
+    padding: 0 5px;
+}
+
+.cancel-btn-color {
+    background: #2D4054;
+}

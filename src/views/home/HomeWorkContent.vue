@@ -4,16 +4,26 @@
             <div class="operation-just">
                 <operation-panel class="operation-panel-content" v-for="(item, index) of contentList" :key="index" :operation-data="item"></operation-panel>
             </div>
+            <div class="table-search">
+                <table-search></table-search>
+            </div>
+            <div>
+                <cruise-content></cruise-content>
+            </div>
         </div>
     </div>
 </template>
 
 <script>
     import OperationPanel from "../../components/common/OperationPanel";
+    import TableSearch from "./TableSeacrh"
+    import CruiseContent from "./CruiseContent"
     export default {
         name: "HomeWorkContent",
         components: {
-            operationPanel: OperationPanel
+            operationPanel: OperationPanel,
+            tableSearch: TableSearch,
+            CruiseContent
         },
         data() {
             return {
@@ -56,5 +66,9 @@
     .operation-panel-content {
         width: 33%;
         flex: 1;
+    }
+
+    .table-search {
+        margin: 10px;
     }
 </style>

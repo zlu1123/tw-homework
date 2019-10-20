@@ -25,11 +25,10 @@
 
 <style scoped>
     .home-content {
-
     }
 
     .home-work-content {
-        position: fixed;
+        position: absolute;
         left: 20%;
         right: 0;
     }
