@@ -21,7 +21,7 @@
             <div class="cruise-content-operate">
                 <div class="content-operate">
                     <div class="icon-plus content-operate-add" @click.stop="showAddPop"></div>
-                    <delete-item v-for="(item, index) of curiseData.resources" :deleteData="item" :key="index"></delete-item>
+                    <delete-item v-for="(item, index) of curiseData.resources" :deleteData="item" :key="index" @deleteOnClick="deleteItem(curiseData, index)"></delete-item>
                 </div>
                 <div class="cruise-content-deny">
                     <div class="icon-deny"></div>
@@ -42,7 +42,7 @@
                         <input class="" type="text" placeholder="e.g.Chorme,FireFox" v-model="inputValue">
                     </div>
                     <div class="pop-btn">
-                        <div class="curise-btn">Add Resourse</div>
+                        <div class="curise-btn" @click.stop="addResource">Add Resourse</div>
                         <div class="curise-btn cancel-btn-color" @click.stop="popShowFlag = false">Canel</div>
                     </div>
                 </div>
@@ -53,6 +53,7 @@
 
 <script>
     import DeleteItem from "./DeleteItem"
+    import {mapActions} from "vuex"
 
     export default {
         name: "CruiseItem",
@@ -68,8 +69,30 @@
             }
         },
         methods: {
+            ...mapActions(["updateAgentInfo", "getAgentInfoById"]),
             showAddPop() {
                 this.popShowFlag = true;
+                this.$emit("addPopClick")
+            },
+
+            deleteItem(curiseData, index) {
+                let params = {...curiseData};
+                params.resources.splice(index, 1);
+                this.updateAgentInfo(params)
+            },
+
+            addResource() {
+                let params = this.curiseData;
+                let resources = this.inputValue.split(",");
+                params.resources = params.resources.concat(resources);
+                try {
+                    this.updateAgentInfo(params)
+                } catch (e){
+                    console.log(e);
+                } finally {
+                    this.popShowFlag = false;
+                }
+
             }
         }
     }

@@ -1,6 +1,6 @@
 <template>
     <div>
-        <cruise-item v-for="(item, index) of this.getAgentInfo" :curiseData="item" :key="index"></cruise-item>
+        <cruise-item v-for="(item, index) in this.getAgentInfo" ref="curiseItem" :curiseData="item" :key="index" @addPopClick="addPopClick(index)"></cruise-item>
     </div>
 </template>
 
@@ -11,6 +11,16 @@
         name: "CruiseContent",
         components: {
             cruiseItem: CruiseItem
+        },
+        methods: {
+            addPopClick(index) {
+                const that = this;
+                for(let i = 0; i < that.getAgentInfo.length; i++) {
+                    if(i != index) {
+                        that.$refs.curiseItem[i].popShowFlag = false;
+                    }
+                }
+            }
         },
         computed: {
             ...mapGetters(["getAgentInfo"])

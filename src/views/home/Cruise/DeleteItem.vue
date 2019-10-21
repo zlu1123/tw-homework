@@ -1,5 +1,5 @@
 <template>
-    <div class="delete-item">
+    <div class="delete-item" @click.stop="deleteOnClick">
         <div>{{deleteData}}</div>
         <div class="icon-trash delete-item-icon"></div>
     </div>
@@ -8,7 +8,12 @@
 <script>
     export default {
         name: "DeleteItem",
-        props: ["deleteData"]
+        props: ["deleteData"],
+        methods: {
+            deleteOnClick() {
+                this.$emit("deleteOnClick");
+            }
+        }
     }
 </script>
 
