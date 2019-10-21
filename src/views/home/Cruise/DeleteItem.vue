@@ -1,13 +1,14 @@
 <template>
     <div class="delete-item">
-        <div>Chrome</div>
+        <div>{{deleteData}}</div>
         <div class="icon-trash delete-item-icon"></div>
     </div>
 </template>
 
 <script>
     export default {
-        name: "DeleteItem"
+        name: "DeleteItem",
+        props: ["deleteData"]
     }
 </script>
 

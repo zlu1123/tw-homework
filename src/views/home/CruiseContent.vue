@@ -1,20 +1,19 @@
 <template>
     <div>
-        <cruise-item v-for="(item, index) of cruiseList" :key="index"></cruise-item>
+        <cruise-item v-for="(item, index) of this.getAgentInfo" :curiseData="item" :key="index"></cruise-item>
     </div>
 </template>
 
 <script>
-    import CruiseItem from "./Cruise/CruiseItem"
+    import CruiseItem from "./Cruise/CruiseItem";
+    import {mapGetters} from "vuex"
     export default {
         name: "CruiseContent",
         components: {
             cruiseItem: CruiseItem
         },
-        data() {
-            return {
-                cruiseList: [0,1,2,3]
-            }
+        computed: {
+            ...mapGetters(["getAgentInfo"])
         }
     }
 </script>

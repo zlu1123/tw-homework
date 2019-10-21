@@ -1,27 +1,27 @@
 <template>
     <div class="cruise-item">
         <div class="cruise-item-img">
-            <img src="../../../../public/img/homework/os-icons/cent_os.png" alt="">
+            <img :src="`${imgHeader}img/homework/os-icons/${curiseData.os}.png`" alt="">
         </div>
         <div class="cruise-item-content">
             <div class="cruise-content-title">
                 <div class="icon-desktop content-title">
                 </div>
                 <div class="content-ip">
-                    1111111111111111111111111111111
+                    {{curiseData.name}}
                 </div>
                 <div class="content-status">
-                    idle
+                    {{curiseData.status}}
                 </div>
                 <div class="icon-info content-title"></div>
-                <div>192.168.1.1</div>
+                <div>{{curiseData.ip}}</div>
                 <div class="icon-folder content-title"></div>
-                <div>/var/bin</div>
+                <div>{{curiseData.location}}</div>
             </div>
             <div class="cruise-content-operate">
-                <div class="content-operate" @click.stop="showAddPop">
-                    <div class="icon-plus content-operate-add"></div>
-                    <delete-item></delete-item>
+                <div class="content-operate">
+                    <div class="icon-plus content-operate-add" @click.stop="showAddPop"></div>
+                    <delete-item v-for="(item, index) of curiseData.resources" :deleteData="item" :key="index"></delete-item>
                 </div>
                 <div class="cruise-content-deny">
                     <div class="icon-deny"></div>
@@ -59,10 +59,12 @@
         components: {
             DeleteItem
         },
+        props: ["curiseData"],
         data() {
             return {
                 popShowFlag: false,
-                inputValue: "   "
+                inputValue: "",
+                imgHeader: process.env.BASE_URL
             }
         },
         methods: {

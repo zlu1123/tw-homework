@@ -12,6 +12,7 @@
     import Header from "../components/Header";
     import LeftBanner from "../components/LeftBanner";
     import HomeWorkContent from "./home/HomeWorkContent";
+    import {mapActions} from "vuex"
 
     export default {
         name: "HomeWork",
@@ -19,6 +20,13 @@
             homeWorkHeader: Header,
             homeWorkLeft: LeftBanner,
             homeWorkContent: HomeWorkContent
+        },
+        mounted() {
+            this.requestAgentInfo();
+        },
+
+        methods: {
+            ...mapActions(["requestAgentInfo"])
         }
     }
 </script>
