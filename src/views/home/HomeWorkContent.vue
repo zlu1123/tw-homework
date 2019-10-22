@@ -64,8 +64,8 @@
     }
 
     .operation-panel-content {
-        width: 33%;
         flex: 1;
+        flex-wrap: wrap;
     }
 
     .table-search {

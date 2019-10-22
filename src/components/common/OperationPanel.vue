@@ -36,11 +36,11 @@
                         num: this.getAgentInfo.length
                     },
                     {
-                        title: "physical",
+                        title: "PHYSICAL",
                         num: this.getTypeNum("physical")
                     },
                     {
-                        title: "virtual",
+                        title: "VIRTUAL",
                         num: this.getTypeNum("virtual")
                     }
                 ];
@@ -96,6 +96,12 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
+        /*兼容其他组件*/
+        height: 144px;
+    }
+
+    .operation-count >div {
+        flex:1
     }
 
     .operation-count-content {
@@ -107,5 +113,6 @@
     }
     .operation-count-num {
         font-size: 20px;
+        margin-top: 20px;
     }
 </style>

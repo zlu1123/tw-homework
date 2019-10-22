@@ -23,7 +23,7 @@
                     <div class="icon-plus content-operate-add" @click.stop="showAddPop"></div>
                     <delete-item v-for="(item, index) of curiseData.resources" :deleteData="item" :key="index" @deleteOnClick="deleteItem(curiseData, index)"></delete-item>
                 </div>
-                <div class="cruise-content-deny">
+                <div class="cruise-content-deny" v-show="curiseData.status == 'building'">
                     <div class="icon-deny"></div>
                     <div>
                         Deny
@@ -35,7 +35,7 @@
                     <div class="arrow-top arrow-box">
                         <b class="top"><i class="top-arrow1"></i><i class="top-arrow2"></i></b>
                     </div>
-                    <div class="icon-close pop-close" @click.stop="popShowFlag = false">
+                    <div class="icon-close pop-close" @click.stop="popShowFlag = false; inputValue = ''">
                     </div>
                     <div class="pop-content-title">Separate multiple resource name with commas</div>
                     <div class="pop-content-input">
@@ -43,7 +43,7 @@
                     </div>
                     <div class="pop-btn">
                         <div class="curise-btn" @click.stop="addResource">Add Resourse</div>
-                        <div class="curise-btn cancel-btn-color" @click.stop="popShowFlag = false">Canel</div>
+                        <div class="curise-btn cancel-btn-color" @click.stop="popShowFlag = false; inputValue = ''">Canel</div>
                     </div>
                 </div>
             </div>
@@ -68,8 +68,17 @@
                 imgHeader: process.env.BASE_URL
             }
         },
+        mounted() {
+            document.addEventListener('click', this.handleBodyClick);
+        },
         methods: {
             ...mapActions(["updateAgentInfo", "getAgentInfoById"]),
+            handleBodyClick() {
+                if(this.popShowFlag) {
+                    this.popShowFlag = false;
+                }
+            },
+
             showAddPop() {
                 this.popShowFlag = true;
                 this.$emit("addPopClick")
@@ -93,6 +102,13 @@
                     this.popShowFlag = false;
                 }
 
+            }
+        },
+        watch: {
+            popShowFlag(val) {
+                if(!val) {
+                    this.inputValue = "";
+                }
             }
         }
     }
@@ -287,6 +303,5 @@
     .color_idle {
         background: #7FBC39
     }
-
 
 </style>

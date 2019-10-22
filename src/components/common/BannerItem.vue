@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div v-for="(item, index) of bannerList" :key="index" class="item-content">
+        <div v-for="(item, index) of bannerList" :key="index" class="item-content" :class="{'item-choose-color': item.currentChoose}">
             <i :class="item.imgPath"></i>
             <span>{{item.text}}</span>
         </div>
@@ -15,26 +15,27 @@
                 bannerList: [
                     {
                         imgPath: "icon-dashboard",
-                        text: "DASHBOARD"
+                        text: "DASHBOARD",
+                        currentChoose: false
                     },
                     {
                         imgPath: "icon-sitemap",
-                        text: "AGENT"
+                        text: "AGENT",
+                        currentChoose: true
                     },
                     {
                         imgPath: "icon-life-bouy",
-                        text: "MY CRUISE"
+                        text: "MY CRUISE",
+                        currentChoose: false
                     },
                     {
                         imgPath: "icon-boat",
-                        text: "HELP"
+                        text: "HELP",
+                        currentChoose: false
                     },
                 ]
             }
         },
-        props: {
-
-        }
     }
 </script>
 
@@ -44,16 +45,15 @@
         display: flex;
         align-items: center;
         justify-content: flex-start;
-
+        color: #ffffff;
     }
 
     .item-content span {
         margin-left: 20px;
-        color: #ffffff;
         font-size: 14px;
     }
 
-    .item-content i{
-        color: #ffffff;
+    .item-choose-color {
+        color: #00B4CF;
     }
 </style>
