@@ -21,8 +21,8 @@
             homeWorkLeft: LeftBanner,
             homeWorkContent: HomeWorkContent
         },
-        mounted() {
-            this.requestAgentInfo();
+        async mounted() {
+            await this.requestAgentInfo();
         },
 
         methods: {

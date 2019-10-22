@@ -2,7 +2,7 @@
     <div>
         <div class="work-content">
             <div class="operation-just">
-                <operation-panel class="operation-panel-content" v-for="(item, index) of contentList" :key="index" :operation-data="item"></operation-panel>
+                <operation-panel class="operation-panel-content" v-for="(item, index) of contentList" :key="index" :operation-data="item" :index="index" :operation-length="contentList.length"></operation-panel>
             </div>
             <div class="table-search">
                 <table-search></table-search>

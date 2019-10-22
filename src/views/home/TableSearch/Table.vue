@@ -9,12 +9,7 @@
 <script>
     export default {
         name: "Table",
-        props: {
-            tableList: {
-                type: Array,
-                default: []
-            }
-        }
+        props: ["tableList"]
     }
 </script>
 

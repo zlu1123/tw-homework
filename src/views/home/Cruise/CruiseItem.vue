@@ -10,7 +10,7 @@
                 <div class="content-ip">
                     {{curiseData.name}}
                 </div>
-                <div class="content-status">
+                <div class="content-status" :class="'color_' + curiseData.status">
                     {{curiseData.status}}
                 </div>
                 <div class="icon-info content-title"></div>
@@ -278,6 +278,14 @@
         right: 10px;
         font-size: 18px;
         color: #00B4CF;
+    }
+
+    .color_building {
+        background: #FF9A2A;
+    }
+
+    .color_idle {
+        background: #7FBC39
     }
 
 

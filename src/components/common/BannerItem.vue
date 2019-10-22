@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div v-for="item of bannerList" class="item-content">
+        <div v-for="(item, index) of bannerList" :key="index" class="item-content">
             <i :class="item.imgPath"></i>
             <span>{{item.text}}</span>
         </div>

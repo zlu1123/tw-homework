@@ -43,11 +43,15 @@ export default new Vuex.Store({
         }
     },
     getters: {
-        getAgentInfo: (state) => {
+        getAgentInfo: state => {
             return state.agentInfo
         },
-        getHistoryList: (state) => {
+        getHistoryList: state => {
             return state.agentInfo.map(item => item.name);
+        },
+
+        getTypeNum: state => type => {
+            return state.agentInfo.filter(item => item.type == type).length;
         }
     }
 })

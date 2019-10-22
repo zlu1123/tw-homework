@@ -5,11 +5,12 @@ import store from './store'
 import './registerServiceWorker'
 import '../public/img/homework/font icons/fonts.css'
 import '../public/img/homework/home-style.css'
-import axios from "axios"
+import httpAxios from "axios"
+
 import es6Promise from "es6-promise"
 
 es6Promise.polyfill();
-Vue.prototype.axios = axios;
+Vue.prototype.axios = httpAxios;
 
 Vue.config.productionTip = false
 
